@@ -224,6 +224,62 @@
       font-size: 1em;
       line-height: 1.4em;
     }
+
+    /* Opinie */
+    .reviews {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .reviews h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    .review {
+      display: none;
+      font-style: italic;
+      font-size: 1.1em;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 0 auto 20px;
+      color: var(--text-color);
+      transition: opacity 0.5s ease;
+    }
+
+    .review.active {
+      display: block;
+    }
+
+    .review h4 {
+      margin-top: 15px;
+      font-weight: normal;
+      color: var(--btn-bg);
+    }
+
+    .review-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .review-controls button {
+      background: var(--btn-bg);
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      font-size: 1.5em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .review-controls button:hover {
+      background: var(--btn-bg-hover);
+    }
   </style>
 </head>
 <body data-theme="light">
@@ -235,6 +291,13 @@
 
   <div class="card">
     <img class="avatar" src="https://i.imgur.com/0y0y0y0.png" alt="Avatar Szymona" />
+    
+    <img
+      src="https://images.unsplash.com/photo-1502767089025-6572583495a6?auto=format&fit=crop&w=600&q=80"
+      alt="Piękna grafika"
+      style="width:100%; border-radius:12px; margin: 20px 0;"
+    />
+
     <h1 id="name">Szymon Wiśniewski</h1>
     <p id="intro">Cześć! Jestem początkującym twórcą stron internetowych. To moja pierwsza wizytówka ✌️</p>
 
@@ -275,6 +338,28 @@
         <p id="event2Desc">Zaczynam pracę nad aplikacją FutureMe+ w wersji beta.</p>
       </div>
     </div>
+
+    <!-- Sekcja opinii -->
+    <div class="reviews">
+      <h2 id="reviewsHeader">Opinie</h2>
+      <div class="review active">
+        <p>“Szymon świetnie poradził sobie z naszym projektem. Polecam!”</p>
+        <h4>– Anna Kowalska</h4>
+      </div>
+      <div class="review">
+        <p>“Bardzo profesjonalne podejście i szybka realizacja.”</p>
+        <h4>– Jan Nowak</h4>
+      </div>
+      <div class="review">
+        <p>“Szymon to bardzo kreatywny i zaangażowany developer.”</p>
+        <h4>– Marta Wiśniewska</h4>
+      </div>
+
+      <div class="review-controls">
+        <button onclick="prevReview()">‹</button>
+        <button onclick="nextReview()">›</button>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -293,75 +378,12 @@
         event1Title: "2023 - Start nauki",
         event1Desc: "Rozpocząłem naukę tworzenia stron internetowych oraz podstaw programowania.",
         event2Title: "2025 - Praca nad FutureMe+",
-        event2Desc: "Zaczynam pracę nad aplikacją FutureMe+ w wersji beta."
+        event2Desc: "Zaczynam pracę nad aplikacją FutureMe+ w wersji beta.",
+        reviewsHeader: "Opinie",
       },
       en: {
         name: "Szymon Wiśniewski",
         intro: "Hi! I'm a beginner web developer. This is my first personal card ✌️",
         contactBtn: "Contact me",
         aboutHeader: "About me",
-        aboutText: "My name is Szymon and I'm learning how to build websites. I love exploring new technologies, improving my skills, and creating things from scratch. In the future, I’d love to work as a frontend developer.",
-        projectsHeader: "Projects",
-        project1Title: "FutureMe+ App",
-        project1Desc: "Beta version of a motivational app to plan and visualize your future.",
-        project1Link: "View project",
-        timelineHeader: "Timeline",
-        event1Title: "2023 - Started learning",
-        event1Desc: "I started learning web development and basics of programming.",
-        event2Title: "2025 - Working on FutureMe+",
-        event2Desc: "I began working on the beta version of the FutureMe+ app."
-      }
-    };
-
-    function switchLanguage(lang) {
-      const t = translations[lang];
-      document.getElementById('name').innerText = t.name;
-      document.getElementById('intro').innerText = t.intro;
-      document.getElementById('contactBtn').innerText = t.contactBtn;
-      document.getElementById('aboutHeader').innerText = t.aboutHeader;
-      document.getElementById('aboutText').innerText = t.aboutText;
-      document.getElementById('projectsHeader').innerText = t.projectsHeader;
-      document.getElementById('project1Title').innerText = t.project1Title;
-      document.getElementById('project1Desc').innerText = t.project1Desc;
-      document.getElementById('project1Link').innerText = t.project1Link;
-
-      // Aktualizacja osi czasu
-      document.getElementById('timelineHeader').innerText = t.timelineHeader;
-      document.getElementById('event1Title').innerText = t.event1Title;
-      document.getElementById('event1Desc').innerText = t.event1Desc;
-      document.getElementById('event2Title').innerText = t.event2Title;
-      document.getElementById('event2Desc').innerText = t.event2Desc;
-    }
-
-    function toggleTheme() {
-      const body = document.body;
-      const current = body.getAttribute('data-theme');
-      const newTheme = current === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', newTheme);
-    }
-
-    function handleScroll() {
-      // Projekty animacja
-      const projects = document.querySelectorAll('.project');
-      projects.forEach(project => {
-        const rect = project.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          project.classList.add('visible');
-        }
-      });
-
-      // Oś czasu animacja
-      const events = document.querySelectorAll('.timeline-event');
-      events.forEach(event => {
-        const rect = event.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          event.classList.add('visible');
-        }
-      });
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('load', handleScroll);
-  </script>
-</body>
-</html>
+        aboutText: "My name is Szymon and I'm learning how to build websites. I love exploring
