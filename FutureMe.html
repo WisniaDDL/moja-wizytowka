@@ -5,24 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FutureMe+</title>
   <style>
+    /* Reset i podstawy */
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #f0f0f0;
-      color: #333;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
+
+    .container {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+      padding: 40px 30px;
+      max-width: 600px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
     h1 {
-      font-size: 3em;
-      font-weight: bold;
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+
+    /* Przycisk lub link */
+    a.btn {
+      display: inline-block;
+      background-color: #ff6f61;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 14px 30px;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(255, 111, 97, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    a.btn:hover {
+      background-color: #ff4a3a;
+      box-shadow: 0 6px 20px rgba(255, 74, 58, 0.8);
+    }
+
+    /* Responsywność */
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      a.btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>FutureMe+</h1>
+  <div class="container">
+    <h1>FutureMe+</h1>
+    <p>
+      FutureMe+ to innowacyjna aplikacja motywacyjna, która pomaga użytkownikom planować i wizualizować swoją przyszłość.
+      Dzięki niej możesz ustalać cele, monitorować postępy i inspirować się do działania każdego dnia.
+      Wersja beta aplikacji jest już dostępna do testów i rozwijana o nowe funkcje.
+    </p>
+    <a href="#" class="btn" target="_blank" rel="noopener noreferrer">Wypróbuj teraz</a>
+  </div>
 </body>
 </html>
