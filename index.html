@@ -14,7 +14,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .card {
@@ -24,6 +30,16 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       text-align: center;
       max-width: 400px;
+      width: 90%;
+    }
+
+    img.avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
@@ -47,10 +63,26 @@
     .socials a:hover {
       color: #000;
     }
+
+    .contact-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .contact-button:hover {
+      background-color: #005fa3;
+    }
   </style>
 </head>
 <body>
   <div class="card">
+    <img class="avatar" src="https://i.imgur.com/0y0y0y0.png" alt="Avatar Szymona" />
     <h1>Szymon Wiśniewski</h1>
     <p>Cześć! Jestem początkującym twórcą stron internetowych. To moja pierwsza wizytówka ✌️</p>
     <div class="socials">
@@ -58,6 +90,7 @@
       <a href="https://linkedin.com/" target="_blank">🔗 LinkedIn</a>
       <a href="https://www.instagram.com/wisnia._26?igsh=NTg1anY1ZXZsYTN0" target="_blank">📸 Instagram</a>
     </div>
+    <a class="contact-button" href="mailto:twoj.email@example.com">Skontaktuj się</a>
   </div>
 </body>
 </html>
