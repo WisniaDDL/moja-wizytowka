@@ -19,6 +19,7 @@
       text-align: center;
       padding: 20px;
       box-sizing: border-box;
+      flex-direction: column;
     }
 
     .container {
@@ -27,6 +28,9 @@
       padding: 40px 30px;
       max-width: 600px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     h1 {
@@ -42,6 +46,7 @@
       line-height: 1.6;
       margin-bottom: 30px;
       text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+      max-width: 500px;
     }
 
     /* Przycisk lub link */
@@ -56,11 +61,27 @@
       box-shadow: 0 4px 15px rgba(255, 111, 97, 0.6);
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
       font-size: 1.1rem;
+      margin-bottom: 15px;
     }
 
     a.btn:hover {
       background-color: #ff4a3a;
       box-shadow: 0 6px 20px rgba(255, 74, 58, 0.8);
+    }
+
+    /* Mały przycisk powrotu */
+    a.back-btn {
+      background-color: #444;
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      border-radius: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    a.back-btn:hover {
+      background-color: #666;
+      box-shadow: 0 4px 15px rgba(100,100,100,0.6);
     }
 
     /* Responsywność */
@@ -78,6 +99,10 @@
         padding: 12px 24px;
         font-size: 1rem;
       }
+      a.back-btn {
+        padding: 6px 16px;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
@@ -90,6 +115,7 @@
       Wersja beta aplikacji jest już dostępna do testów i rozwijana o nowe funkcje.
     </p>
     <a href="#" class="btn" target="_blank" rel="noopener noreferrer">Wypróbuj teraz</a>
+    <a href="index.html" class="back-btn">← Powrót do strony głównej</a>
   </div>
 </body>
 </html>
