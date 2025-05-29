@@ -265,14 +265,14 @@
 
     <!-- Oś czasu -->
     <div class="timeline">
-      <h2>Oś czasu</h2>
+      <h2 id="timelineHeader">Oś czasu</h2>
       <div class="timeline-event" id="event1">
-        <h3>2023 - Start nauki</h3>
-        <p>Rozpocząłem naukę tworzenia stron internetowych oraz podstaw programowania.</p>
+        <h3 id="event1Title">2023 - Start nauki</h3>
+        <p id="event1Desc">Rozpocząłem naukę tworzenia stron internetowych oraz podstaw programowania.</p>
       </div>
       <div class="timeline-event" id="event2">
-        <h3>2025 - Praca nad FutureMe+</h3>
-        <p>Zaczynam pracę nad aplikacją FutureMe+ w wersji beta.</p>
+        <h3 id="event2Title">2025 - Praca nad FutureMe+</h3>
+        <p id="event2Desc">Zaczynam pracę nad aplikacją FutureMe+ w wersji beta.</p>
       </div>
     </div>
   </div>
@@ -288,7 +288,12 @@
         projectsHeader: "Projekty",
         project1Title: "Aplikacja FutureMe+",
         project1Desc: "Wersja beta aplikacji motywacyjnej pomagającej zaplanować i wizualizować swoją przyszłość.",
-        project1Link: "Zobacz projekt"
+        project1Link: "Zobacz projekt",
+        timelineHeader: "Oś czasu",
+        event1Title: "2023 - Start nauki",
+        event1Desc: "Rozpocząłem naukę tworzenia stron internetowych oraz podstaw programowania.",
+        event2Title: "2025 - Praca nad FutureMe+",
+        event2Desc: "Zaczynam pracę nad aplikacją FutureMe+ w wersji beta."
       },
       en: {
         name: "Szymon Wiśniewski",
@@ -299,7 +304,12 @@
         projectsHeader: "Projects",
         project1Title: "FutureMe+ App",
         project1Desc: "Beta version of a motivational app to plan and visualize your future.",
-        project1Link: "View project"
+        project1Link: "View project",
+        timelineHeader: "Timeline",
+        event1Title: "2023 - Started learning",
+        event1Desc: "I started learning web development and basics of programming.",
+        event2Title: "2025 - Working on FutureMe+",
+        event2Desc: "I began working on the beta version of the FutureMe+ app."
       }
     };
 
@@ -314,6 +324,13 @@
       document.getElementById('project1Title').innerText = t.project1Title;
       document.getElementById('project1Desc').innerText = t.project1Desc;
       document.getElementById('project1Link').innerText = t.project1Link;
+
+      // Aktualizacja osi czasu
+      document.getElementById('timelineHeader').innerText = t.timelineHeader;
+      document.getElementById('event1Title').innerText = t.event1Title;
+      document.getElementById('event1Desc').innerText = t.event1Desc;
+      document.getElementById('event2Title').innerText = t.event2Title;
+      document.getElementById('event2Desc').innerText = t.event2Desc;
     }
 
     function toggleTheme() {
