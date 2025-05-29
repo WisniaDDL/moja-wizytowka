@@ -130,6 +130,7 @@
       line-height: 1.5em;
     }
 
+    /* Projekty */
     .projects {
       margin-top: 40px;
       text-align: left;
@@ -169,6 +170,60 @@
     .project a:hover {
       text-decoration: underline;
     }
+
+    /* Oś czasu */
+    .timeline {
+      position: relative;
+      margin-top: 40px;
+      padding-left: 30px;
+      border-left: 3px solid var(--btn-bg);
+      max-width: 600px;
+      width: 100%;
+      color: var(--text-color);
+    }
+
+    .timeline h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .timeline-event {
+      position: relative;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.6s ease;
+    }
+
+    .timeline-event.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-event::before {
+      content: '';
+      position: absolute;
+      left: -14px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background-color: var(--btn-bg);
+      border-radius: 50%;
+      border: 3px solid var(--card-bg);
+      box-sizing: content-box;
+    }
+
+    .timeline-event h3 {
+      margin: 0 0 5px;
+      font-size: 1.2em;
+    }
+
+    .timeline-event p {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.4em;
+    }
   </style>
 </head>
 <body data-theme="light">
@@ -198,12 +253,26 @@
       </p>
     </div>
 
+    <!-- Sekcja projektów -->
     <div class="projects">
       <h2 id="projectsHeader">Projekty</h2>
       <div class="project">
         <h3 id="project1Title">Aplikacja FutureMe+</h3>
         <p id="project1Desc">Wersja beta aplikacji motywacyjnej pomagającej zaplanować i wizualizować swoją przyszłość.</p>
         <a href="#" target="_blank" id="project1Link">Zobacz projekt</a>
+      </div>
+    </div>
+
+    <!-- Oś czasu -->
+    <div class="timeline">
+      <h2>Oś czasu</h2>
+      <div class="timeline-event" id="event1">
+        <h3>2023 - Start nauki</h3>
+        <p>Rozpocząłem naukę tworzenia stron internetowych oraz podstaw programowania.</p>
+      </div>
+      <div class="timeline-event" id="event2">
+        <h3>2025 - Praca nad FutureMe+</h3>
+        <p>Zaczynam pracę nad aplikacją FutureMe+ w wersji beta.</p>
       </div>
     </div>
   </div>
@@ -255,11 +324,21 @@
     }
 
     function handleScroll() {
+      // Projekty animacja
       const projects = document.querySelectorAll('.project');
       projects.forEach(project => {
         const rect = project.getBoundingClientRect();
         if (rect.top < window.innerHeight - 100) {
           project.classList.add('visible');
+        }
+      });
+
+      // Oś czasu animacja
+      const events = document.querySelectorAll('.timeline-event');
+      events.forEach(event => {
+        const rect = event.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          event.classList.add('visible');
         }
       });
     }
