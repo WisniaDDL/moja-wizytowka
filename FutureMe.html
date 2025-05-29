@@ -19,6 +19,7 @@
       text-align: center;
       padding: 20px;
       box-sizing: border-box;
+      flex-direction: column;
     }
 
     .container {
@@ -27,6 +28,8 @@
       padding: 40px 30px;
       max-width: 600px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      width: 100%;
+      box-sizing: border-box;
     }
 
     h1 {
@@ -44,8 +47,8 @@
       text-shadow: 0 1px 4px rgba(0,0,0,0.4);
     }
 
-    /* Przycisk lub link */
-    a.btn {
+    /* Przyciski */
+    .btn {
       display: inline-block;
       background-color: #ff6f61;
       color: white;
@@ -56,11 +59,20 @@
       box-shadow: 0 4px 15px rgba(255, 111, 97, 0.6);
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
       font-size: 1.1rem;
+      margin: 5px 10px;
+      cursor: pointer;
     }
 
-    a.btn:hover {
+    .btn:hover {
       background-color: #ff4a3a;
       box-shadow: 0 6px 20px rgba(255, 74, 58, 0.8);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     /* Responsywność */
@@ -74,9 +86,12 @@
       p {
         font-size: 1rem;
       }
-      a.btn {
+      .btn {
         padding: 12px 24px;
         font-size: 1rem;
+      }
+      .buttons {
+        flex-direction: column;
       }
     }
   </style>
@@ -89,7 +104,11 @@
       Dzięki niej możesz ustalać cele, monitorować postępy i inspirować się do działania każdego dnia.
       Wersja beta aplikacji jest już dostępna do testów i rozwijana o nowe funkcje.
     </p>
-    <a href="wkrótce.html" class="btn" target="_self" rel="noopener noreferrer">Wypróbuj teraz</a>
+
+    <div class="buttons">
+      <a href="wkrótce.html" class="btn" target="_self" rel="noopener noreferrer">Wypróbuj teraz</a>
+      <a href="index.html" class="btn" target="_self" rel="noopener noreferrer">Powrót do strony głównej</a>
+    </div>
   </div>
 </body>
 </html>
