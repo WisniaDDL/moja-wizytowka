@@ -6,7 +6,7 @@
   <title>Moja Wizytówka</title>
   <style>
     :root {
-      --bg-color: #f0f0f0;
+      --bg-color: linear-gradient(135deg, #e0f7fa, #e1bee7);
       --text-color: #333;
       --card-bg: white;
       --btn-bg: #0077cc;
@@ -14,7 +14,7 @@
     }
 
     [data-theme="dark"] {
-      --bg-color: #121212;
+      --bg-color: linear-gradient(135deg, #1c1c1c, #2e2e2e);
       --text-color: #e0e0e0;
       --card-bg: #1e1e1e;
       --btn-bg: #444;
@@ -32,7 +32,8 @@
       justify-content: flex-start;
       min-height: 100vh;
       padding: 30px 10px;
-      transition: background 0.3s, color 0.3s;
+      transition: background 0.5s, color 0.3s;
+      background-attachment: fixed;
     }
 
     .card {
@@ -44,7 +45,11 @@
       max-width: 500px;
       width: 100%;
       margin-top: 20px;
-      transition: background 0.3s;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     img.avatar {
@@ -129,6 +134,14 @@
       font-size: 1em;
       line-height: 1.5em;
     }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9em;
+      color: var(--text-color);
+      opacity: 0.7;
+    }
   </style>
 </head>
 <body data-theme="light">
@@ -158,6 +171,8 @@
       </p>
     </div>
   </div>
+
+  <footer>&copy; <span id="year"></span> Szymon Wiśniewski</footer>
 
   <script>
     const translations = {
@@ -192,6 +207,9 @@
       const newTheme = current === 'dark' ? 'light' : 'dark';
       body.setAttribute('data-theme', newTheme);
     }
+
+    // Ustawienie aktualnego roku w stopce
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
